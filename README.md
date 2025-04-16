@@ -100,3 +100,37 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,i: f'{x:.0f}%'))
 - Although SAS is less demanded compared to the others it also show stable demand throughout the year.
 
 - There's a sudden increase of demand in December for all trending skills.
+
+## 3. How well do jobs and skills pay for Data Analysts?
+
+Compare the salary distribution of Data Analyst to other indemand job.
+
+Refer to Jupyter Notebook for the detailed steps: [4_Salary_Analysis](./3_Project/4_Salary_Analysis.ipynb)
+
+### Visualize Data
+
+```python
+job_order = df_US_top6.groupby('job_title_short')['salary_year_avg'].median().sort_values(ascending=False).index
+
+sns.boxplot(data=df_US_top6,x='salary_year_avg',y='job_title_short', order=job_order)
+
+ax = plt.gca()
+ax.set_xlim(0,700_000)
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x,i : f'{int(x/1000)}K'))
+ax.set_xlabel('Yearly Salary ($USD)')
+ax.set_ylabel('')
+ax.set_title('Salary Distribution in United States', fontsize= 18)
+```
+
+### Results
+
+![Salary Distribution for Indemand Jobs](./3_Project/Images/Salary_Distribution_US.png)
+*Boxplot visualizing the distribution of salary for in-demand jobs in United States.*
+
+### Insights
+
+- Senior Roles for Data Scientist and Data Engineer have the hight yearly salary compared to all.
+
+- Senior role for data analyst have a lower median yearly salary compared to Data Scientist and Data Engineer.
+
+- Median salaries increases with the seniority and specialization of the roles.
