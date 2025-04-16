@@ -11,7 +11,7 @@ https://huggingface.co/datasets/lukebarousse/data_jobs
 
 To find the most indemand skills for the top 3 roles, I filtered out those positions by which onces were the most popular, and get the top 5 skills for the top 3 roles. By doing this it will show which skill should focus on based on the role.
 
-Refer to Jupyter Notebook for the detailed steps: [2_Skills_Demand.ipynb](3_Project\2_Skills_Demand.ipynb)
+Refer to Jupyter Notebook for the detailed steps: [2_Skills_Demand.ipynb](./3_Project/2_Skills_Demand.ipynb)
 
 ### Visualize Data
 
@@ -50,7 +50,7 @@ plt.show()
 ```
 
 ### Results
-![Visualization of Top Skills for Top Roles](3_Project\Images\Skill_Demand.png)
+![Visualization of Top Skills for Top Roles](./3_Project/Images/Skill_Demand.png)
 *Bar graph visualizing the In-demand skills for trending jobs in 2023.*
 
 ### Insights
@@ -65,7 +65,7 @@ plt.show()
 
 To identify the trend of in-demand skills for Data Analyst role in United States, I filtered the dataset for Posted Jobs of Data Analyst in United States then get the monthly posted jobs count and compare it to monthly skill counts to get the likelihood of skills in job posting.
 
-Refer to Jupyter Notebook for the detailed steps: [3_Skill_Trend.ipynb](3_Project\3_Skill_Trend.ipynb)
+Refer to Jupyter Notebook for the detailed steps: [3_Skill_Trend.ipynb](./3_Project/3_Skill_Trend.ipynb)
 
 ### Visualize Data
 
@@ -86,7 +86,7 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,i: f'{x:.0f}%'))
 
 ### Results
 
-![Skill Trend for Data Analyst in US](3_Project\Images\Skill_Trend_DA_US.png)
+![Skill Trend for Data Analyst in US](./3_Project/Images/Skill_Trend_DA_US.png)
 *Line chart visualizing the monthly trend of top skills for Data Analyst in US in 2023.*
 
 ### Insights
