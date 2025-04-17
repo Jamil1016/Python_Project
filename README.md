@@ -107,7 +107,6 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,i: f'{x:.0f}%'))
 =======
 #### Job Comparison
 
->>>>>>> 73e6616 (add 5_Optimal_Skills.ipynb)
 Compare the salary distribution of Data Analyst to other indemand job.
 
 Refer to Jupyter Notebook for the detailed steps: [4_Salary_Analysis](./3_Project/4_Salary_Analysis.ipynb)
@@ -204,4 +203,3 @@ plt.show()
 - Tools like `dplyr`, `bitbucket`, `gitlab`, and `solidity` are not universally required, but when they are, they pay very well, often due to a combination of scarcity and impact. These are “specialist” skills—less common, more technical, and often not beginner-friendly, but highly rewarding.
 
 - Skills like `Python`, `SQL`, `Excel`, and `Power BI` are the bread and butter of data analysis. Their salaries are more modest but reflect widespread usage and continuous demand. These are “generalist” skills—easier to learn, widely needed, and a must-have for any data analyst.
->>>>>>> 73e6616 (add 5_Optimal_Skills.ipynb)
