@@ -102,11 +102,7 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,i: f'{x:.0f}%'))
 - There's a sudden increase of demand in December for all trending skills.
 
 ## 3. How well do jobs and skills pay for Data Analysts?
-
-<<<<<<< HEAD
-=======
-#### Job Comparison
-
+### Job Comparison
 Compare the salary distribution of Data Analyst to other indemand job.
 
 Refer to Jupyter Notebook for the detailed steps: [4_Salary_Analysis](./3_Project/4_Salary_Analysis.ipynb)
@@ -124,10 +120,7 @@ ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x,i : f'{int(x/1000)}K'))
 ax.set_xlabel('Yearly Salary ($USD)')
 ax.set_ylabel('')
 ax.set_title('Salary Distribution in United States', fontsize= 18)
-<<<<<<< HEAD
-=======
 plt.show()
->>>>>>> 73e6616 (add 5_Optimal_Skills.ipynb)
 ```
 
 ### Results
@@ -141,11 +134,9 @@ plt.show()
 
 - Senior role for data analyst have a lower median yearly salary compared to Data Scientist and Data Engineer.
 
-<<<<<<< HEAD
-- Median salaries increases with the seniority and specialization of the roles.
-=======
 - Median salaries increases with the seniority and specialization of the roles.
 
+- Median salaries increases with the seniority and specialization of the roles.
 #### Skills Comparison
 
 Determine the top-paying and most in-demand skills for Data Analysts, and identify which ones are most valuable to learn.
@@ -203,3 +194,62 @@ plt.show()
 - Tools like `dplyr`, `bitbucket`, `gitlab`, and `solidity` are not universally required, but when they are, they pay very well, often due to a combination of scarcity and impact. These are “specialist” skills—less common, more technical, and often not beginner-friendly, but highly rewarding.
 
 - Skills like `Python`, `SQL`, `Excel`, and `Power BI` are the bread and butter of data analysis. Their salaries are more modest but reflect widespread usage and continuous demand. These are “generalist” skills—easier to learn, widely needed, and a must-have for any data analyst.
+
+### Skill Comparison
+
+Using scatterplot identify which skill is worth investing. Determine the median yearly salary and the demand status of skills.
+
+Refer to jupyter notebook for detailed steps: [5_Optimal_Skills](./3_Project/5_Optimal_Skills.ipynb)
+
+### Visualise Data
+```python
+df_plot = df_DA_skill_demand.merge(df_tech_explode, how='left', left_on='job_skills', right_on='skills')
+
+from adjustText import adjust_text
+
+plt.figure(figsize=(8,4))
+
+sns.scatterplot(data=df_plot, x='skill_percent', y='median_salary',hue= 'technology')
+sns.despine()
+sns.set_theme(style='ticks')
+
+texts = []
+for i,skill in enumerate(df_DA_skill_demand.index):
+    texts.append(
+        plt.text(
+            x= df_DA_skill_demand['skill_percent'].iloc[i]
+            ,y= df_DA_skill_demand['median_salary'].iloc[i]
+            ,s= skill
+        )
+    )
+
+adjust_text(texts,arrowprops=dict(arrowstyle='->',color='gray'))
+
+plt.xlabel('Percent of Data Analyst Jobs')
+plt.ylabel('Median Yearly Salary')
+plt.title('Most Optimal Skills for Data Analyst in US' ,fontsize=12)
+plt.legend(title=False)
+ax=plt.gca()
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x,i: f'{x}%'))
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y,i: f'${y/1000:,.0f}K'))
+plt.tight_layout()
+plt.show()
+```
+
+### Results
+![scatterplot comparison of median yearly salary and demand rate of skills](./3_Project/Images/Optimal_Skill.png)
+*Scatterplot shows the connection between the median yearly salary and the demand rate of each skills for Data Analyst in United States*
+
+### Insights
+
+- `Python`, `SQL`, and `Tableau` offer the best mix of high demand and strong salaries, making them the most optimal core skills for data analysts.
+
+- `Excel` and basic office tools are widely used but offer lower pay and are not major differentiators in the job market.
+
+- Specialized tools like `Oracle` and `Go` offer high salaries but are niche, ideal for standing out in advanced or industry-specific roles.
+
+
+
+
+
+
